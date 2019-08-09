@@ -3,7 +3,7 @@ defmodule LiveViewTodosWeb.TodoLive do
   alias LiveViewTodos.Todos
   alias LiveViewTodosWeb.TodoView
 
-  def mount(_session, socket) do
+  def mount(_session,  socket) do
     {:ok, fetch(socket)}
   end
 
@@ -18,7 +18,7 @@ defmodule LiveViewTodosWeb.TodoLive do
   end
 
   defp fetch(socket) do
-    assign(socket, todo: Todos.list_todos())
+    assign(socket, todos: Todos.list_todos())
   end
 
 end
