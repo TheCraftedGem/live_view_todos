@@ -4,6 +4,7 @@ defmodule LiveViewTodosWeb.TodoLive do
   alias LiveViewTodosWeb.TodoView
 
   def mount(_session,  socket) do
+    Todos.subscribe()
     {:ok, fetch(socket)}
   end
 
@@ -11,10 +12,26 @@ defmodule LiveViewTodosWeb.TodoLive do
     TodoView.render("todos.html", assigns)
   end
 
+  def handle_info({Todos, [:todo | _], _}, socket) do
+    {:noreply, fetch(socket)}
+  end
+
   def handle_event("add", %{"todo" => todo}, socket) do
     Todos.create_todo(todo)
 
-    {:noreply, fetch(socket)}
+    {:noreply, socket}
+  end
+
+  def handle_event("delete", todo, socket) do
+    Todos.delete_todo(todo)
+
+    {:noreply, socket}
+  end
+
+  def handle_event("toggle_done", id, socket) do
+    todo = Todos.get_todo!(id)
+    Todos.update_todo(todo, %{done: !todo.done})
+    {:noreply, socket}
   end
 
   defp fetch(socket) do
