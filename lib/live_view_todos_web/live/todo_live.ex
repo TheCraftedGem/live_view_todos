@@ -22,8 +22,8 @@ defmodule LiveViewTodosWeb.TodoLive do
     {:noreply, socket}
   end
 
-  def handle_event("delete", todo, socket) do
-    Todos.delete_todo(todo)
+  def handle_event("delete", id, socket) do
+    Todos.delete_todo(id)
 
     {:noreply, socket}
   end
