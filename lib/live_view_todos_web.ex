@@ -53,9 +53,9 @@ defmodule LiveViewTodosWeb do
     quote do
       use Phoenix.Router
 
-      import Phoenix.LiveView.Router
       import Plug.Conn
       import Phoenix.Controller
+      import Phoenix.LiveView.Router
     end
   end
 
