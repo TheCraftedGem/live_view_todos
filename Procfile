@@ -1,2 +1,2 @@
-web: mix phx.server
+web: mix ecto.migrate && mix phx.server
 
