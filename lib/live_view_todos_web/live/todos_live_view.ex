@@ -1,4 +1,4 @@
-defmodule LiveViewTodosWeb.TodoLiveView do
+defmodule LiveViewTodosWeb.TodosLiveView do
   use Phoenix.LiveView
   alias LiveViewTodos.Todos
 
