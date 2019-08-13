@@ -1,4 +1,4 @@
-defmodule LiveViewTodosWeb.TodoLive do
+defmodule LiveViewTodosWeb.TodoLiveView do
   use Phoenix.LiveView
   alias LiveViewTodos.Todos
   alias LiveViewTodosWeb.TodoView
@@ -9,7 +9,7 @@ defmodule LiveViewTodosWeb.TodoLive do
   end
 
   def render(assigns) do
-    TodoView.render("todos.html", assigns)
+    LiveViewTodosWeb.PageView.render("todos.html", assigns)
   end
 
   def handle_info({Todos, [:todo | _], _}, socket) do
