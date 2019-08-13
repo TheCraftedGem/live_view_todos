@@ -3,6 +3,6 @@ defmodule LiveViewTodosWeb.PageController do
   alias Phoenix.LiveView
 
   def index(conn, _params) do
-    LiveView.Controller.live_render(conn, LiveViewTodosWeb.TodoLive, session: %{})
+    render(conn, "todos.html")
   end
 end
