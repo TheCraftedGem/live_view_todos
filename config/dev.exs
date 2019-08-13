@@ -4,8 +4,8 @@ use Mix.Config
 config :live_view_todos, LiveViewTodos.Repo,
   # username: "postgres",
   # password: "postgres",
-  # database: "live_view_todos_dev",
-  # hostname: "localhost",
+  database: "live_view_todos_dev",
+  hostname: "localhost",
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
 
